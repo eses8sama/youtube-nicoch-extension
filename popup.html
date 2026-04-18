@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 260px;
+      background: #1a1a1a;
+      color: #fff;
+      font-family: "Meiryo", "Hiragino Kaku Gothic Pro", Arial, sans-serif;
+      font-size: 13px;
+      padding-bottom: 8px;
+    }
+
+    header {
+      background: #ff4444;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .section {
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .row-label {
+      display: flex;
+      justify-content: space-between;
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    .row-label span {
+      color: #fff;
+      font-weight: bold;
+      min-width: 28px;
+      text-align: right;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      accent-color: #ff4444;
+      cursor: pointer;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      margin: 0 16px;
+    }
+
+    .btn-area {
+      padding: 10px 16px 4px;
+      display: flex;
+      gap: 8px;
+    }
+
+    button {
+      flex: 1;
+      padding: 8px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 12px;
+      font-family: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #btn-test {
+      background: #ff4444;
+      color: #fff;
+    }
+    #btn-test:hover { background: #ff6666; }
+
+    #btn-reset {
+      background: rgba(255,255,255,0.1);
+      color: #ccc;
+    }
+    #btn-reset:hover { background: rgba(255,255,255,0.18); }
+
+    .saved-msg {
+      text-align: center;
+      color: #4caf50;
+      font-size: 11px;
+      height: 16px;
+      margin-top: 4px;
+    }
+  </style>
+</head>
+<body>
+  <header>💬 ニコニコ風コメント設定</header>
+
+  <div class="section">
+    <div class="row">
+      <div class="row-label">速さ <span id="val-speed">3</span></div>
+      <input type="range" id="speed" min="1" max="15" step="0.5" value="3">
+    </div>
+    <div class="row">
+      <div class="row-label">文字サイズ <span id="val-fontsize">28</span>px</div>
+      <input type="range" id="fontsize" min="14" max="60" step="1" value="28">
+    </div>
+    <div class="row">
+      <div class="row-label">透明度 <span id="val-opacity">0.9</span></div>
+      <input type="range" id="opacity" min="0.1" max="1" step="0.05" value="0.9">
+    </div>
+    <div class="row">
+      <div class="row-label">行数 <span id="val-lanes">12</span></div>
+      <input type="range" id="lanes" min="3" max="20" step="1" value="12">
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="btn-area">
+    <button id="btn-test">テスト送信</button>
+    <button id="btn-reset">リセット</button>
+  </div>
+  <div class="saved-msg" id="saved-msg"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

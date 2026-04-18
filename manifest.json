@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube ニコニコ風コメント流し",
+  "version": "1.3",
+  "description": "YouTubeライブ配信のチャットコメントをニコニコ動画風に流します",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content_script.js"],
+      "css": ["style.css"],
+      "run_at": "document_idle",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.youtube.com/live_chat*",
+        "https://www.youtube.com/live_chat_replay*",
+        "https://*.youtube.com/live_chat*"
+      ],
+      "js": ["chat_observer.js"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ]
+}
